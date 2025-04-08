@@ -1,0 +1,82 @@
+<div class="signup-wrapper card shadow-sm p-4">
+    <h5 class="mb-3">Sign Up</h5>
+    <form (ngSubmit)="signUp()">
+      <div class="form-group mb-3">
+        <label for="userName">User Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          name="username"
+          [(ngModel)]="user.userName"
+          required
+        />
+      </div>
+  
+      <!-- <div class="form-group mb-3">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          [(ngModel)]="user.email"
+          required
+        />
+      </div> -->
+  
+      <div class="form-group mb-3">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          [(ngModel)]="user.password"
+          required
+        />
+      </div>
+  
+      <div class="form-group mb-3">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="confirmPassword"
+          name="confirmPassword"
+          [(ngModel)]="confirmPassword"
+          required
+        />
+      </div>
+  
+      <button type="submit" class="btn btn-primary w-100" >Sign Up</button>
+  
+      <div class="text-center mt-3">
+        <small>Already have an account? 
+            <span (click)="navigateToLogin()" class="text-primary cursor-pointer" (click)="signUp()"
+            >Log In</span>
+        </small>
+      </div>
+    </form>
+  </div>
+
+  <!-- Toast -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div
+    class="toast align-items-center text-white"
+    [ngClass]="toastClass"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    #toastRef
+  >
+    <div class="d-flex">
+      <div class="toast-body">
+        {{ toastMessage }}
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" (click)="hideToast()" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+  

@@ -1,0 +1,67 @@
+<div class="container mt-4">
+  <div class="row text-center">
+    <div class="col">
+      <h4 class="task-status-heading todo">To Do</h4>
+      <ng-container *ngFor="let task of getTasksByStatus('todo')">
+        <app-task [task]="task"  (taskUpdated)="fetchTasksFromChild()"></app-task>
+      </ng-container>
+    </div>
+
+    <div class="col">
+      <h4 class="task-status-heading in-progress">In Progress</h4>
+      <ng-container *ngFor="let task of getTasksByStatus('inprogress')">
+        <app-task [task]="task"  (taskUpdated)="fetchTasksFromChild()"></app-task>
+      </ng-container>
+    </div>
+
+    <div class="col">
+      <h4 class="task-status-heading finished">Finished</h4>
+      <ng-container *ngFor="let task of getTasksByStatus('finished')">
+        <app-task [task]="task"  (taskUpdated)="fetchTasksFromChild()"></app-task>
+      </ng-container>
+    </div>
+  </div>
+
+  <button class="btn btn-success position-absolute bottom-0 end-0 m-3" (click)="showNewTaskForm()">+ New Task</button>
+
+
+
+  
+  
+<!-- task-form.component.html -->
+<div class="form-wrapper" >
+  <div *ngIf="isFormVisible" class="task-form card shadow-sm">
+    <h6 class="form-title">Create New Task</h6>
+    <form (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="newTask.title" name="title" required />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" id="description" [(ngModel)]="newTask.description" name="description" required />
+      </div>
+
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select class="form-control" id="status" [(ngModel)]="newTask.status" name="status" required>
+          <option value="todo">Todo</option>
+          <option value="inprogress">In Progress</option>
+          <option value="finished">Finished</option>
+        </select>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-sm btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+</div>
