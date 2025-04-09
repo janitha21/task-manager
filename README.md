@@ -1,5 +1,5 @@
 //Environment Setup -
-Database: Please create a new database named assignment_tri.
+Database: Please create a new database named "assignment_tri"
 Java Version: 22.0.2 | Node Version: 22.14.0 | Angular Version: 19.2.5
 
 *How It Works*
